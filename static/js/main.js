@@ -26,8 +26,6 @@ getScroll = () => {
     let position = document.getElementsByTagName('body')
     position.innerHTML = ""
     if (window.pageYOffset != undefined) {
-        /* console.log(" X-axis : "
-             + pageXOffset + " Y-axis : " + pageYOffset)*/
         setScroll = pageYOffset
     } else {
         let doc = document,
@@ -35,8 +33,6 @@ getScroll = () => {
             b = doc.body;
         x_axis = ele.scrollLeft || b.scrollLeft || 0;
         y_axis = ele.scrollTop || b.scrollTop || 0;
-        /*console.log(" X-axis : "
-            + x_axis + " Y-axis : " + y_axis)*/
         setScroll = y_axis
     }
 }
@@ -93,11 +89,6 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
             catch { }
 
         } else {
-            // for (let i = 0; i < oldContext.object.length; i++) {
-            //     if (oldContext.object[i].key == searchBarValue) {
-            //         console.log('Git');
-            //     }
-            // }
             if (document.querySelector('.table-filter')) {
 
             } else {
@@ -122,11 +113,8 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
                 tableFilter.classList.add('table-filter')
                 for (let j = 0; Object.keys(oldContext.object[0]).length; j++) {
                     function filterContentAdd() {
-                        // console.log(oldContext.object[j].key);
                         let trBody = document.createElement('tr')
                         let tdButton = document.createElement('button')
-                        // console.log(Object.keys(oldContext.object[j]));
-                        // console.log(searchBarValue);
                         tdButton.classList.add('key-button')
                         tdButton.type = 'button'
                         tdButton.addEventListener("click", () => {
@@ -149,7 +137,6 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
                                 if (oldContext.object[j].status === 'In Progress') {
                                     let paragraph = document.createElement('p')
                                     let div = document.createElement('div')
-                                    // console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(oldContext.object[i][Object.keys(oldContext.object[i])[j]])
                                     div.append(paragraph)
@@ -160,7 +147,6 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
                                     let div = document.createElement('div')
                                     icon.src = '/static/gfx/img/checked.png'
                                     icon.classList.add('icon')
-                                    // console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(icon)
                                     div.append(paragraph)
@@ -174,7 +160,6 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
                                     icon.height = '30'
                                     icon.width = '30'
                                     icon.style.marginLeft = '2px'
-                                    //console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(icon)
                                     div.append(paragraph)
@@ -199,7 +184,6 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
                                 let week = Math.round(element / (60 * 60 * 24 * 7))
                                 let month = Math.round(element / (60 * 60 * 24 * 31))
                                 let year = Math.round(element / (60 * 60 * 24 * 31 * 12))
-                                //console.log(month);
                                 if (seconds < 60) {
                                     let paragraph = document.createElement('p')
                                     paragraph.append(`${seconds.toFixed(0)} seconds ago`)
@@ -303,8 +287,6 @@ document.querySelector('.filter-submit').addEventListener("click", () => {
 
 function reloadTable() {
     getScroll()
-    // let tableChildren = document.querySelector('.table-in').children
-    // console.log(tableChildren);
 
     fetch('/static/json/context.json')
         .then((response) => response.json())
@@ -335,7 +317,6 @@ function reloadTable() {
 
             if (context != oldContext) {
                 document.querySelector('.table-in').innerHTML = ''
-                // let allData = context.object
                 let trHead = document.createElement('tr')
                 const tableElement = document.querySelector('.table-in')
 
@@ -348,13 +329,6 @@ function reloadTable() {
                         thHead.style.padding = '0px'
                         thHead.append("Icon")
                     } else {
-                        // let icon = document.createElement('img')
-                        // icon.classList.add(`${Object.keys(context.object[0])[i]}`)
-                        // icon.src = '/static/gfx/img/arrows.png'
-                        // icon.style.width = '15px'
-                        // icon.style.height = '15px'
-                        // icon.style.marginRight = '7.5px'
-                        // thHead.append(icon)
                         thHead.append(Object.keys(context.object[0])[i])
                     }
                     trHead.append(thHead)
@@ -382,9 +356,6 @@ function reloadTable() {
                         })
 
                         for (let j = 0; j < Object.keys(context.object[i]).length; j++) {
-                            // let capitalizeFirstName = getCookie("firstname").charAt(0).toUpperCase() + getCookie("firstname").slice(1)
-                            // let capitalizeLastName = getCookie("lastname").charAt(0).toUpperCase() + getCookie("lastname").slice(1)
-                            //console.log(capitalizeFirstName, capitalizeLastName);
                             let tdBody = document.createElement('td')
                             let tdButton = document.createElement('button')
                             if (Object.keys(context.object[i])[j] === 'tI') {
@@ -395,18 +366,6 @@ function reloadTable() {
                                 tdBody.style.padding = '0px'
                                 tdBody.style.width = 'fit-content'
                                 tdBody.append(img)
-                                // } else if (Object.keys(context.object[i])[j] === 'pI') {
-                                //     let img = document.createElement('img')
-                                //     let div = document.createElement('div')
-                                //     img.src = context.object[i][Object.keys(context.object[i])[j]]
-                                //     img.style.width = '100%'
-                                //     img.style.height = '100%'
-                                //     div.append(img)
-                                //     tdBody.style.padding = '0px'
-                                //     div.style.width = '25px'
-                                //     div.style.height = '25px'
-                                //     div.style.margin = '0 auto'
-                                //     tdBody.append(div)
                             } else if (Object.keys(context.object[i])[j] === 'updated') {
                                 let seconds = context.object[i].updated
                                 let minutes = Math.round(context.object[i].updated / 60)
@@ -415,7 +374,6 @@ function reloadTable() {
                                 let week = Math.round(context.object[i].updated / (60 * 60 * 24 * 7))
                                 let month = Math.round(context.object[i].updated / (60 * 60 * 24 * 31))
                                 let year = Math.round(context.object[i].updated / (60 * 60 * 24 * 31 * 12))
-                                //console.log(month);
                                 if (seconds < 60) {
                                     let paragraph = document.createElement('p')
                                     paragraph.append(`${seconds.toFixed(0)} seconds ago`)
@@ -472,7 +430,7 @@ function reloadTable() {
                                     tdBody.append(context.object[i][Object.keys(context.object[i])[j]])
                                 }
                             }
-                            else if (Object.keys(context.object[i])[j] === 'created') { /*Object.keys(context.object[i])[j] === 'updateDate'*/
+                            else if (Object.keys(context.object[i])[j] === 'created') { 
                                 let d = new Date(context.object[i][Object.keys(context.object[i])[j]])
                                 let year = d.getFullYear()
                                 let month = d.getMonth() + 1
@@ -483,7 +441,6 @@ function reloadTable() {
                                 if (context.object[i].status === 'In Progress') {
                                     let paragraph = document.createElement('p')
                                     let div = document.createElement('div')
-                                    // console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(context.object[i][Object.keys(context.object[i])[j]])
                                     div.append(paragraph)
@@ -494,7 +451,6 @@ function reloadTable() {
                                     let div = document.createElement('div')
                                     icon.src = '/static/gfx/img/checked.png'
                                     icon.classList.add('icon')
-                                    // console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(icon)
                                     div.append(paragraph)
@@ -508,7 +464,6 @@ function reloadTable() {
                                     icon.height = '30'
                                     icon.width = '30'
                                     icon.style.marginLeft = '2px'
-                                    //console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(icon)
                                     div.append(paragraph)
@@ -517,7 +472,6 @@ function reloadTable() {
                                 else if (context.object[i].status === 'Open') {
                                     let paragraph = document.createElement('p')
                                     let div = document.createElement('div')
-                                    //  console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(context.object[i][Object.keys(context.object[i])[j]])
                                     div.append(paragraph)
@@ -526,7 +480,6 @@ function reloadTable() {
                                 else if (context.object[i].status === 'Submitted') {
                                     let paragraph = document.createElement('p')
                                     let div = document.createElement('div')
-                                    //  console.log(Object.keys(context.object[i])[j]);
                                     tdBody.classList.add('td-flex')
                                     paragraph.append(context.object[i][Object.keys(context.object[i])[j]])
                                     div.append(paragraph)
@@ -547,11 +500,6 @@ function reloadTable() {
                                 tdButton.append(context.object[i][Object.keys(context.object[i])[j]])
                                 tdBody.append(tdButton)
                             } else {
-                                // if (context.object[i][Object.keys(context.object[i])[j]] === capitalizeLastName + ', ' + capitalizeFirstName || context.object[i][Object.keys(context.object[i])[j]] === capitalizeLastName + ', ' + capitalizeFirstName + ' [X]') {
-                                //     trBody.style.fontWeight = 700
-                                //     trBody.style.backgroundColor = '#ccffcc'
-
-                                // }
                                 tdBody.append(context.object[i][Object.keys(context.object[i])[j]])
                             }
                             trBody.append(tdBody)
@@ -570,14 +518,6 @@ function reloadTable() {
 
 
 
-                    // context.object.forEach((headElement, index) => {
-                    //     let headTh = document.createElement('th')
-                    //     console.log(index);
-                    //     headTh.append(Object.keys(headElement)[index])
-                    //     console.log(Object.keys(headElement)[index]);
-                    //     console.log(Object.keys(headElement).length);
-                    //     trHeadElement.append(headTh)
-                    // })
 
                     window.scrollTo(0, setScroll)
                 }
