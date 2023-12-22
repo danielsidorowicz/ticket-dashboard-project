@@ -1,0 +1,7 @@
+{
+    "project1": "PROJ1",
+    "project2": "PROJ2",
+    "project3": "PROJ3",
+    "authorizationPass": "example:authorization",
+    "maxSearches": 100
+}

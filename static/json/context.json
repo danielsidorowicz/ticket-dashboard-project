@@ -1,0 +1,54 @@
+{
+  "object": [
+    {
+      "key": "KEY-1",
+      "type": "type1",
+      "tI": "icon",
+      "status": "Done",
+      "resolution": "Resolved",
+      "created": "2021-05-15T10:19:31.000+0200",
+      "updated": 1,
+      "assignee": "Kowalski, Jan"
+    },
+    {
+      "key": "KEY-2",
+      "type": "type2",
+      "tI": "icon",
+      "status": "Done",
+      "resolution": "Resolved",
+      "created": "2021-05-15T10:19:31.000+0200",
+      "updated": 89922,
+      "assignee": "Kowalski, Jan"
+    },
+    {
+      "key": "KEY-3",
+      "type": "type3",
+      "tI": "icon",
+      "status": "Done",
+      "resolution": "Resolved",
+      "created": "2021-05-15T10:19:31.000+0200",
+      "updated": 102542,
+      "assignee": "Kowalski, Jan"
+    },
+    {
+      "key": "KEY-4",
+      "type": "type1",
+      "tI": "icon",
+      "status": "Done",
+      "resolution": "Resolved",
+      "created": "2021-05-15T10:19:31.000+0200",
+      "updated": 162542,
+      "assignee": "Kowalski, Jan"
+    },
+    {
+      "key": "KEY-5",
+      "type": "type2",
+      "tI": "icon",
+      "status": "Done",
+      "resolution": "Resolved",
+      "created": "2021-05-15T10:19:31.000+0200",
+      "updated": 2162542,
+      "assignee": "Kowalski, Jan"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Dashboard</title>
+    <link rel="shortcut icon" href="../static/gfx/img/home.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- <script src="../static/js/cookie.js"></script> -->
+</head>
+
+<body>
+    <div class="all" id="all">
+        <nav class="navtop" id="navtop">
+            <img class="company-logo" src="../static/gfx/img/home.png" alt="logo" width="50px">
+            <h1 class="ticket-count">Tickets: </h1>
+            <div class="filter-div" id="filter-div">
+                <select name="filter-select" class="filter-select">
+                    <option value="all">All (Unfiltered)</option>
+                </select>
+                <div class="separator">&nbsp;</div>
+                <input type="text" name="filter" class="js-input" placeholder="Search : ">
+                <button type="submit" class="filter-submit"><img class="filter-img" src="../static/gfx/img/loupe.png"
+                        alt="loupe" height="20vh"></button>
+            </div>
+            <!-- <button class="slider-button" onclick="deleteCookie()">CLEAR NAME</button> -->
+            <div class="bringdeleted" id="bringdeleted">
+                <button class="slider-button" type="submit" id="slider-button">RESTORE</button>
+            </div>
+            <button class="slider-button" onclick="window.location.replace('/')">SLIDER</button>
+        </nav>
+        <div class="tableDiv" id="tableDiv">
+            <table class="table-in" id="displayInfo">
+                <thead class="tr-head">
+
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

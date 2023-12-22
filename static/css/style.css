@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.all {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navtop {
+    background-color: black;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+td {
+    text-align: left;
+    width: 6vw;
+    overflow-y: hidden;
+}
+
+.company-logo {
+    cursor: pointer;
+    margin-left: 35px;
+    transition: 1s;
+    height: 100%;
+    align-self: center;
+}
+
+th {
+    width: 5vw;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+
+.key-button:hover {
+    color: cornflowerblue;
+    background-color: #1A1A1A;
+    font-weight: bolder;
+
+}
+
+.key-button {
+    appearance: none;
+    background-color: white;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    min-height: 45px;
+    min-width: 0;
+    outline: none;
+    padding: 1px 2px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+
+.key-button:disabled {
+    pointer-events: none;
+}
+
+.key-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.tableDiv {
+    width: 100%;
+}
+
+.table-in {
+    width: 100%;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-top: 25px;
+    margin-left: 10px;
+    border-collapse: collapse;
+
+}
+
+.table-in td {
+    border-bottom: 1px solid lightgray;
+    padding: 6.5px;
+
+}
+
+.table-in th {
+    border-bottom: 1px solid lightgray;
+    padding: 7.5px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    text-align: center;
+}
+
+.td-flex {
+    margin-top: 27px;
+}
+
+.td-flex div {
+    width: 70%;
+}
+
+.hidden {
+    display: none;
+}
+
+.settings {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.slider-button {
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge cornflowerblue;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.slider-button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: black;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.slider-button::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.slider-button:hover::before,
+.slider-button:hover::after {
+    transform: scale(0)
+}
+
+.slider-button:hover {
+    box-shadow: inset 0px 0px 25px cornflowerblue;
+    ;
+}
+
+.filter-div {
+    display: flex;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.js-input {
+    width: 250px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    /* height: 3.5em; */
+}
+
+.filter-select {
+    font-size: 16px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    padding: 12.5px;
+    text-transform: capitalize;
+    outline: none;
+    /* height: 4.2em; */
+}
+
+.separator {
+    width: 1px;
+    height: 50%;
+    background-color: lightgray;
+    align-self: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.filter-submit {
+    display: flex;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: cornflowerblue;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.filter-img {
+    align-self: center;
+}
+
+.filter-select option {
+    text-transform: capitalize;
+}
+
+.table-filter {
+    width: 100%;
+    font-size: 0.8em;
+    margin-top: 25px;
+    margin-left: 10px;
+    border-collapse: collapse;
+}
+
+.table-filter td {
+    border-bottom: 1px solid lightgray;
+    padding: 6.5px;
+
+}
+
+.table-filter th {
+    border-bottom: 1px solid lightgray;
+    padding: 7.5px;
+}
+
+.delete-button {
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    background: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.delete-button:hover,
+.delete-button:active {
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    background-color: black;
+    background-position: 0 0;
+    color: cornflowerblue;
+}
+
+.delete-button:active {
+    opacity: .5;
+}
+
+.error-info {
+    color: cornflowerblue;
+    margin: 15px;
+}
+
+.ticket-count {
+    color: white;
+    align-self: center;
+    background-color: black;
+    border: 2px ridge cornflowerblue;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.highlight-new {
+    background-color: lightgreen;
+}
